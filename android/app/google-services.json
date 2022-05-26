@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "832562142068",
+    "project_id": "clothused-62eb2",
+    "storage_bucket": "clothused-62eb2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832562142068:android:332c584ef3927d0624ea21",
+        "android_client_info": {
+          "package_name": "com.example.clothused"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832562142068-m0upen8moa8h9thk3mabhd5ltscf4h7c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs8Fk_n4BBetX-eYooldeahm_uFW5nobQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832562142068-m0upen8moa8h9thk3mabhd5ltscf4h7c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
