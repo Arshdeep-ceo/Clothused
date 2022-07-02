@@ -20,4 +20,7 @@ class FireBaseDataBase extends GetxController {
     print(blurHash.hash);
     return blurHash.hash;
   }
+
+  
+
 }

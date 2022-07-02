@@ -1,6 +1,9 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:simple_speed_dial/simple_speed_dial.dart';
 import 'package:stacked_architecture/constants/theme.dart';
 import 'package:stacked_architecture/ui/views/home/home_viewmodel.dart';
 import 'package:stacked_architecture/ui/views/home/widgets/product_tile.dart';
@@ -11,7 +14,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeViewModel model = Get.find();
+    final HomeViewModel homeModel = Get.put(HomeViewModel());
     return Scaffold(
       backgroundColor: kPrimaryColor2,
       appBar: AppBar(
@@ -26,7 +29,7 @@ class HomeView extends StatelessWidget {
         ),
         actions: [
           InkWell(
-            onTap: () => model.signOut(),
+            onTap: () => homeModel.signOut(),
             child: const Padding(
               padding: EdgeInsets.all(15.0),
               child: Icon(
@@ -37,31 +40,50 @@ class HomeView extends StatelessWidget {
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: kPrimaryColor,
-        onPressed: () {
-          model.backToHome();
-        },
-        child: const Icon(
-          LineIcons.plus,
-          // color: Colors.black,
-        ),
+      floatingActionButton: SpeedDial(
+        closedBackgroundColor: kPrimaryColor,
+        openBackgroundColor: kPrimaryColor,
+        speedDialChildren: [
+          SpeedDialChild(
+            child: const Icon(LineIcons.memory),
+            onPressed: () {},
+          ),
+        ],
+        child: const Icon(LineIcons.plus),
       ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(flex: 2, child: StoryTile()),
-            const SizedBox(
-              height: 10,
+      body: Stack(
+        children: [
+          // SizedBox.expand(
+          //   child: BlurHash(
+          //     hash:
+          //         'yIKm;4Ri_NROIUM{aJ~Wjrxut6M{xufPE1ofIAR+R*ogozM{ofocRPt7WBozxus:M{ayoft6j[oLM|j?ozW=jYRPRjj[V@t7xuV@V@',
+          //     image:
+          //         'https://images.unsplash.com/photo-1623596305214-19f21cbf48ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80',
+          //     imageFit: BoxFit.cover,
+          //     errorBuilder: (context, object, n) {
+          //       return const Center(
+          //         child: Text('NO INTERNET'),
+          //       );
+          //     },
+          //   ),
+          // ),
+          SafeArea(
+            child: Column(
+              children: [
+                Expanded(flex: 2, child: StoryTile()),
+                const SizedBox(
+                  height: 10,
+                ),
+                Expanded(
+                  flex: 9,
+                  child: ProductTile(
+                    productImage: homeModel.productImage,
+                  ),
+                ),
+              ],
             ),
-            Expanded(
-              flex: 9,
-              child: ProductTile(
-                productImage: model.productImage,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

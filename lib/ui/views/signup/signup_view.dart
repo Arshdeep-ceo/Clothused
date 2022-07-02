@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:get/get.dart';
 import 'package:stacked_architecture/constants/theme.dart';
-import 'package:stacked_architecture/services/firebase_database.dart';
 import 'package:stacked_architecture/ui/views/signup/signup_viewmodel.dart';
 import '../../../widgets/textfield_widget.dart';
 
@@ -15,7 +14,6 @@ class SignupView extends StatelessWidget {
     SignupViewModel signupViewModel = Get.put(SignupViewModel());
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
-    FireBaseDataBase fireBaseDataBase = Get.put(FireBaseDataBase());
     String email = '';
     String password = '';
     return Scaffold(
@@ -26,8 +24,7 @@ class SignupView extends StatelessWidget {
             child: BlurHash(
               hash:
                   'yIKm;4Ri_NROIUM{aJ~Wjrxut6M{xufPE1ofIAR+R*ogozM{ofocRPt7WBozxus:M{ayoft6j[oLM|j?ozW=jYRPRjj[V@t7xuV@V@',
-              image:
-                  'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGZhc2hpb258ZW58MHwxfDB8fA%3D%3D&auto=format&fit=crop&w=500',
+              image: signupViewModel.backgroundImage,
               imageFit: BoxFit.cover,
               errorBuilder: (context, object, n) {
                 return const Center(
@@ -84,8 +81,6 @@ class SignupView extends StatelessWidget {
                         await signupViewModel.createNewUser(
                             email: email, password: password);
                       }
-                      // fireBaseDataBase.createImageHash(
-                      //     'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGZhc2hpb258ZW58MHwxfDB8fA%3D%3D&auto=format&fit=crop&w=500');
                     },
                     child: const Text(
                       'SIGNUP',

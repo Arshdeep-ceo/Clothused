@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:stacked_architecture/ui/views/login/login_view.dart';
 
 class SignupViewModel extends GetxController {
-  // SignupViewModel({required this.email, required this.password});
+  final String backgroundImage =
+      'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGZhc2hpb258ZW58MHwxfDB8fA%3D%3D&auto=format&fit=crop&w=500';
 
-  void navigateToHome() => Get.offNamed('/');
+  void navigateToHome() => Get.offNamed('/nav');
 
-  void navigateToLoginScreen() => Get.toNamed('login_view');
+  void navigateToLoginScreen() => Get.offNamed('login_view');
 
   // final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
