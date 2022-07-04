@@ -9,6 +9,8 @@ import 'package:stacked_architecture/ui/views/home/home_viewmodel.dart';
 import 'package:stacked_architecture/ui/views/home/widgets/product_tile.dart';
 import 'package:stacked_architecture/ui/views/home/widgets/story_tile.dart';
 
+import '../product_details/product_details_view.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -53,7 +55,7 @@ class HomeView extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // SizedBox.expand(
+          // SizedBox.expand(  // BACKGROUND IMAGE
           //   child: BlurHash(
           //     hash:
           //         'yIKm;4Ri_NROIUM{aJ~Wjrxut6M{xufPE1ofIAR+R*ogozM{ofocRPt7WBozxus:M{ayoft6j[oLM|j?ozW=jYRPRjj[V@t7xuV@V@',
@@ -77,6 +79,7 @@ class HomeView extends StatelessWidget {
                 Expanded(
                   flex: 9,
                   child: ProductTile(
+                    productDetailsPage: ProductDetailsView(),
                     productImage: homeModel.productImage,
                   ),
                 ),

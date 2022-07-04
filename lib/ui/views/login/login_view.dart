@@ -2,8 +2,10 @@ import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:get/get.dart';
+import 'package:stacked_architecture/constants/theme.dart';
 import 'package:stacked_architecture/ui/views/login/login_viewmodel.dart';
 
+import '../../../widgets/rounded_button_widget.dart';
 import '../../../widgets/textfield_widget.dart';
 
 class LoginView extends StatelessWidget {
@@ -63,28 +65,18 @@ class LoginView extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
+                RoundedButtonWidget(
+                  text: 'LOGIN',
                   width: double.infinity,
                   height: 60,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                    ),
-                    onPressed: () async {
-                      if (emailController.text.trim() != '' &&
-                          passwordController.text.trim() != '') {
-                        await loginViewModel.loginUser(
-                            email: email, password: password);
-                      }
-                    },
-                    child: const Text(
-                      'LOGIN',
-                    ),
-                  ),
+                  backgroundColor: kPrimaryColor,
+                  onPressed: () async {
+                    if (emailController.text.trim() != '' &&
+                        passwordController.text.trim() != '') {
+                      await loginViewModel.loginUser(
+                          email: email, password: password);
+                    }
+                  },
                 ),
                 TextButton(
                     onPressed: () {
