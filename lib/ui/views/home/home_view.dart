@@ -2,6 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';
 import 'package:stacked_architecture/constants/theme.dart';
@@ -22,7 +23,10 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: kPrimaryColor2,
         elevation: 0,
-        title: Text('HOME', style: Get.textTheme.headline6),
+        title: Text(
+          'HOME',
+          style: GoogleFonts.sriracha(color: Colors.black),
+        ),
         centerTitle: true,
         leading: const Icon(
           LineIcons.bellAlt,

@@ -21,7 +21,8 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  String checkUser() {   // Checks if a user is logged in or not
+  //? Checks if a user is logged in or not
+  String checkUser() {
     if (FirebaseAuth.instance.currentUser != null) {
       return '/nav';
     } else {
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       scrollBehavior: const MaterialScrollBehavior(
-          androidOverscrollIndicator: AndroidOverscrollIndicator.stretch),
+          androidOverscrollIndicator: AndroidOverscrollIndicator
+              .stretch), //! Depercated and need another solution.
       debugShowCheckedModeBanner: false,
       initialRoute: checkUser(),
       defaultTransition: Transition.cupertino,

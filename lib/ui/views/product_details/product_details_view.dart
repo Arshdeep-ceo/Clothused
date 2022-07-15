@@ -94,7 +94,7 @@ class ProductDetailsView extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 70,
                           ),
                         ],
@@ -106,6 +106,7 @@ class ProductDetailsView extends StatelessWidget {
             ),
           ),
           Stack(
+            //? Contains white background container and Row(Price,BuyButton) on top.
             alignment: Alignment.bottomCenter,
             children: [
               SizedBox(
@@ -118,7 +119,7 @@ class ProductDetailsView extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 15.0, bottom: 15, left: 15, right: 15),
                 child: Row(
-                  // Row with Price and Buy button.
+                  //? Row with Price and Buy button.
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -129,11 +130,13 @@ class ProductDetailsView extends StatelessWidget {
                       ),
                     ),
                     RoundedButtonWidget(
-                        borderRadius: 20,
-                        width: 130,
-                        height: 50,
-                        onPressed: () {},
-                        text: 'ORDER NOW'),
+                      backgroundColor: kPrimaryColor,
+                      borderRadius: 20,
+                      width: 130,
+                      height: 50,
+                      onPressed: () {},
+                      text: 'ORDER NOW',
+                    ),
                   ],
                 ),
               ),

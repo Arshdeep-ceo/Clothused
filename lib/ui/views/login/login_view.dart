@@ -18,6 +18,7 @@ class LoginView extends StatelessWidget {
     TextEditingController passwordController = TextEditingController();
     String email = '';
     String password = '';
+
     return Scaffold(
       body: Stack(
         children: [

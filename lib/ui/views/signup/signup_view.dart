@@ -4,6 +4,7 @@ import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:get/get.dart';
 import 'package:stacked_architecture/constants/theme.dart';
 import 'package:stacked_architecture/ui/views/signup/signup_viewmodel.dart';
+import '../../../widgets/rounded_button_widget.dart';
 import '../../../widgets/textfield_widget.dart';
 
 class SignupView extends StatelessWidget {
@@ -64,17 +65,10 @@ class SignupView extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                    ),
+                RoundedButtonWidget(
+                    width: double.infinity,
+                    height: 60,
+                    backgroundColor: kPrimaryColor,
                     onPressed: () async {
                       if (emailController.text.trim() != '' &&
                           passwordController.text.trim() != '') {
@@ -82,11 +76,7 @@ class SignupView extends StatelessWidget {
                             email: email, password: password);
                       }
                     },
-                    child: const Text(
-                      'SIGNUP',
-                    ),
-                  ),
-                ),
+                    text: 'SIGNUP'),
                 TextButton(
                     onPressed: () {
                       signupViewModel.navigateToLoginScreen();
